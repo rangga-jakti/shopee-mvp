@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Produk - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="/">Home</a>
+          <a href="/login.html" id="loginBtn">Login</a>
+          <a href="/register.html" id="registerBtn">Register</a>
+          <a href="/seller.html" id="sellerBtn" style="display: none"
+            >Dashboard Seller</a
+          >
+          <a href="#" id="logoutBtn" style="display: none">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+      <div class="container">
+        <div id="loadingSpinner" class="loading">Memuat produk...</div>
+
+        <div
+          id="productDetail"
+          class="product-detail-container"
+          style="display: none"
+        >
+          <div class="product-detail-image">
+            <div id="productImage" class="detail-image-placeholder">📦</div>
+          </div>
+
+          <div class="product-detail-info">
+            <div class="breadcrumb">
+              <a href="/">Home</a> /
+              <span id="breadcrumbCategory">Kategori</span> /
+              <span id="breadcrumbName">Produk</span>
+            </div>
+
+            <h1 id="productName" class="detail-product-name">Nama Produk</h1>
+
+            <div class="detail-price-section">
+              <div class="detail-price" id="productPrice">Rp 0</div>
+              <div class="detail-stock" id="productStock">Stok: 0</div>
+            </div>
+
+            <div class="detail-category">
+              <span class="category-badge" id="productCategory">Kategori</span>
+            </div>
+
+            <div class="detail-description">
+              <h3>Deskripsi Produk</h3>
+              <p id="productDescription">
+                Deskripsi produk akan muncul di sini...
+              </p>
+            </div>
+
+            <div class="detail-seller-info">
+              <h4>Informasi Penjual</h4>
+              <p>Seller ID: <span id="sellerId">-</span></p>
+            </div>
+
+            <div class="detail-actions">
+              <button
+                onclick="window.history.back()"
+                class="btn-secondary btn-large"
+              >
+                ⬅️ Kembali
+              </button>
+              <button
+                onclick="buyProduct()"
+                class="btn-primary btn-large"
+                id="buyBtn"
+              >
+                🛒 Beli Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="errorMessage" class="error-section" style="display: none">
+          <h2>😕 Produk Tidak Ditemukan</h2>
+          <p>Produk yang Anda cari tidak tersedia atau telah dihapus.</p>
+          <button onclick="window.location.href = '/'" class="btn-primary">
+            Kembali ke Home
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="related-products-section">
+      <div class="container">
+        <h3>Produk Lainnya</h3>
+        <div id="relatedProductsGrid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/product-detail.js"></script>
+  </body>
+</html>

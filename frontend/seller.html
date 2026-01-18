@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Dashboard - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu">
+          <a href="/">Home</a>
+          <a href="seller.html">Dashboard Seller</a>
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+      <div class="container">
+        <h2>🏪 Dashboard Seller</h2>
+        <p id="welcomeMessage">Loading...</p>
+      </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-info">
+              <h3 id="totalProducts">0</h3>
+              <p>Total Produk</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-info">
+              <h3 id="totalStock">0</h3>
+              <p>Total Stok</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+              <h3 id="totalValue">Rp 0</h3>
+              <p>Total Nilai Produk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Product Button -->
+    <section class="add-product-section">
+      <div class="container">
+        <button onclick="showAddProductModal()" class="btn-primary">
+          ➕ Tambah Produk Baru
+        </button>
+      </div>
+    </section>
+
+    <!-- My Products Section -->
+    <section class="my-products-section">
+      <div class="container">
+        <h3>Produk Saya</h3>
+        <div id="loadingSpinner" class="loading">Memuat produk...</div>
+        <div id="myProductsGrid" class="products-grid"></div>
+        <div id="noProducts" class="no-products" style="display: none">
+          Anda belum memiliki produk. Tambahkan produk pertama Anda!
+        </div>
+      </div>
+    </section>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Tambah Produk Baru</h3>
+          <span class="close" onclick="closeProductModal()">&times;</span>
+        </div>
+        <form id="productForm" onsubmit="handleProductSubmit(event)">
+          <div class="form-group">
+            <label>Nama Produk *</label>
+            <input
+              type="text"
+              id="productName"
+              required
+              placeholder="Contoh: iPhone 15 Pro Max"
+            />
+          </div>
+          <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea
+              id="productDescription"
+              rows="3"
+              placeholder="Deskripsi produk..."
+            ></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Harga (Rp) *</label>
+              <input
+                type="number"
+                id="productPrice"
+                required
+                min="0"
+                placeholder="10000"
+              />
+            </div>
+            <div class="form-group">
+              <label>Stok *</label>
+              <input
+                type="number"
+                id="productStock"
+                required
+                min="0"
+                placeholder="10"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Kategori</label>
+            <select id="productCategory">
+              <option value="Elektronik">Elektronik</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Audio">Audio</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>URL Gambar</label>
+            <input
+              type="url"
+              id="productImage"
+              placeholder="https://example.com/image.jpg"
+            />
+          </div>
+          <div id="modalError" class="error-message"></div>
+          <div id="modalSuccess" class="success-message"></div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              onclick="closeProductModal()"
+              class="btn-secondary"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn-primary" id="submitBtn">
+              Simpan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/seller.js"></script>
+  </body>
+</html>

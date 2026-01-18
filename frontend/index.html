@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopee MVP - Marketplace Sederhana</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="/">Home</a>
+          <a href="/login.html" id="loginBtn">Login</a>
+          <a href="/register.html" id="registerBtn">Register</a>
+          <a href="seller.html" id="sellerBtn" style="display: none"
+            >Dashboard Seller</a
+          >
+          <a href="#" id="logoutBtn" style="display: none">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2>Selamat Datang di Shopee MVP</h2>
+        <p>Marketplace sederhana untuk jual-beli produk elektronik</p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-group">
+          <label>Filter Kategori:</label>
+          <select id="categoryFilter">
+            <option value="">Semua Kategori</option>
+            <option value="Elektronik">Elektronik</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Audio">Audio</option>
+            <option value="Fashion">Fashion</option>
+          </select>
+          <button onclick="filterProducts()" class="btn-primary">Filter</button>
+          <button onclick="loadProducts()" class="btn-secondary">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+      <div class="container">
+        <h3>Daftar Produk</h3>
+        <div id="loadingSpinner" class="loading">Memuat produk...</div>
+        <div id="productsGrid" class="products-grid"></div>
+        <div id="noProducts" class="no-products" style="display: none">
+          Belum ada produk tersedia
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/products.js"></script>
+  </body>
+</html>

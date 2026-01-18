@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu">
+          <a href="/">Home</a>
+          <a href="/register.html">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="auth-section">
+      <div class="container">
+        <div class="auth-card">
+          <h2>Login</h2>
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                id="username"
+                required
+                placeholder="Masukkan username"
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                id="password"
+                required
+                placeholder="Masukkan password"
+              />
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+            <button type="submit" class="btn-primary btn-block">Login</button>
+          </form>
+          <p class="auth-footer">
+            Belum punya akun? <a href="register.html">Register di sini</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+  </body>
+</html>
