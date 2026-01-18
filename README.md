@@ -1,34 +1,44 @@
 # Shopee MVP – Simple Marketplace Application
 
-Shopee MVP is a simple marketplace application built **end-to-end** using **FastAPI (Python backend)** and **Vanilla JavaScript (frontend)**.
+Shopee MVP is a **full-stack marketplace MVP** built end-to-end using  
+**FastAPI (Python backend)** and **Vanilla JavaScript (frontend)**.
 
-This project is designed as a **learning and portfolio project**, focusing on building a real, functional MVP rather than a feature-complete e-commerce platform.
+This project focuses on **clean backend architecture, authentication, and real API–frontend integration**, rather than UI-heavy frameworks.
 
 ---
 
-## Scope & Goals
+## Project Goals
 
-The scope of this project is intentionally limited to a **Minimum Viable Product (MVP)** with a focus on:
-
-- Clean backend architecture
-- RESTful API design
-- Authentication & authorization
-- Frontend–backend integration without heavy frontend frameworks
-
-Advanced features such as cart, checkout, and payment processing are intentionally left for future development phases.
+- Build a real, working marketplace MVP
+- Practice backend system design with FastAPI
+- Implement JWT-based authentication & authorization
+- Separate concerns (models, routes, schemas, services)
+- Prepare a **portfolio-grade project** for backend roles
 
 ---
 
 ## Features
 
-- Authentication & Authorization (JWT)
-- Role-based Users (Buyer & Seller)
-- Product Listing with Category Filter
-- Product Detail Page
-- Seller Dashboard (CRUD Products)
-- Seller Statistics & Analytics
-- SQLite Database (Persistent Storage)
-- Responsive UI (Vanilla JavaScript)
+### Authentication & Users
+
+- JWT Authentication
+- Role-based access (Buyer & Seller)
+- Secure password hashing (Argon2)
+
+### Marketplace
+
+- Product listing & filtering
+- Product detail page
+- Seller dashboard (CRUD products)
+- Seller statistics & analytics
+
+### Technical
+
+- RESTful API
+- SQLite database
+- Clean project structure
+- Automated tests
+- Vanilla JS frontend (Fetch API)
 
 ---
 
@@ -40,14 +50,30 @@ Advanced features such as cart, checkout, and payment processing are intentional
 - SQLAlchemy
 - SQLite
 - Pydantic
-- Argon2 (Password Hashing)
-- Python-JOSE (JWT Authentication)
+- Argon2
+- Python-JOSE (JWT)
 
 ### Frontend
 
 - HTML5
 - CSS3
-- Vanilla JavaScript (Fetch API)
+- Vanilla JavaScript
+
+---
+
+## Project Structure
+
+```text
+shopee-mvp/
+│
+├── backend/        # FastAPI backend
+├── frontend/       # HTML, CSS, JS frontend
+├── tests/          # Automated tests
+├── scripts/        # Helper & debug scripts
+├── README.md
+├── LICENSE
+└── requirements.txt
+
 
 ---
 
@@ -55,22 +81,20 @@ Advanced features such as cart, checkout, and payment processing are intentional
 
 ### 1. Clone the Repository
 
-```bash
-git clone <repository-url>
+git clone https://github.com/rangga-jakti/shopee-mvp.git
 cd shopee-mvp
 
 ### 2. Create a Virtual Environment
-python -m venv venv
 
+python -m venv venv
 venv\Scripts\activate       # Windows
 source venv/bin/activate    # macOS / Linux
 
 ### 3. Install Dependencies
-pip install fastapi uvicorn sqlalchemy pydantic passlib \
-python-jose[cryptography] python-multipart email-validator argon2-cffi
+pip install -r requirements.txt
 
-### 4. Initialize the Database
-python -m backend.init_db
+### 4. Initialize Database
+python backend/init_db.py
 
 ### 5. Run the Server
 uvicorn backend.main:app --reload
@@ -126,8 +150,18 @@ Deploy ke Railway / Render / Heroku
 Change SQLite to PostgreSQL
 Add domain custom
 SSL certificate
-```
+
+## Testing
+pytest
+
+## Notes
+
+This project was created as a personal learning and portfolio project to practice building a full-stack marketplace application from scratch.
+
+It focuses on core marketplace concepts such as authentication, product management, and seller dashboards.
+Advanced features like checkout and payment processing are intentionally left for future iterations.
 
 ## LICENSE
 
 MIT License
+```
