@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="/">Home</a>
+          <a href="/cart.html">🛒 Keranjang</a>
+          <a href="/login.html" id="loginBtn">Login</a>
+          <a href="/register.html" id="registerBtn">Register</a>
+          <a href="/seller.html" id="sellerBtn" style="display: none"
+            >Dashboard Seller</a
+          >
+          <a href="#" id="logoutBtn" style="display: none">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="cart-header">
+      <div class="container">
+        <h2>🛒 Keranjang Belanja</h2>
+        <p>Kelola produk yang akan Anda beli</p>
+      </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+      <div class="container">
+        <div id="loadingSpinner" class="loading">Memuat keranjang...</div>
+
+        <div id="emptyCart" class="empty-cart" style="display: none">
+          <div class="empty-icon">🛒</div>
+          <h3>Keranjang Anda Kosong</h3>
+          <p>Belum ada produk di keranjang. Yuk, mulai belanja!</p>
+          <a href="/" class="btn-primary">Mulai Belanja</a>
+        </div>
+
+        <div id="cartContent" class="cart-content" style="display: none">
+          <div class="cart-items-section">
+            <div class="cart-items-header">
+              <h3>Produk di Keranjang</h3>
+              <button onclick="clearCart()" class="btn-text-danger">
+                Kosongkan Keranjang
+              </button>
+            </div>
+            <div id="cartItemsList" class="cart-items-list"></div>
+          </div>
+
+          <div class="cart-summary-section">
+            <div class="cart-summary">
+              <h3>Ringkasan Belanja</h3>
+              <div class="summary-row">
+                <span>Total Item:</span>
+                <strong id="totalItems">0</strong>
+              </div>
+              <div class="summary-row">
+                <span>Total Quantity:</span>
+                <strong id="totalQuantity">0</strong>
+              </div>
+              <div class="summary-divider"></div>
+              <div class="summary-row summary-total">
+                <span>Total Harga:</span>
+                <strong id="totalPrice" class="total-price">Rp 0</strong>
+              </div>
+              <button
+                onclick="showCheckoutModal()"
+                class="btn-primary btn-block btn-large"
+              >
+                Lanjut ke Pembayaran
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>📦 Checkout</h3>
+          <span class="close" onclick="closeCheckoutModal()">&times;</span>
+        </div>
+        <form id="checkoutForm" onsubmit="handleCheckout(event)">
+          <div class="form-group">
+            <label>Alamat Pengiriman *</label>
+            <textarea
+              id="shippingAddress"
+              rows="4"
+              required
+              placeholder="Masukkan alamat lengkap untuk pengiriman (minimal 10 karakter)"
+            ></textarea>
+          </div>
+
+          <div class="checkout-summary">
+            <h4>Ringkasan Pesanan</h4>
+            <div id="checkoutItems" class="checkout-items-list"></div>
+            <div class="summary-divider"></div>
+            <div class="summary-row summary-total">
+              <span>Total Pembayaran:</span>
+              <strong id="checkoutTotal" class="total-price">Rp 0</strong>
+            </div>
+          </div>
+
+          <div id="checkoutError" class="error-message"></div>
+          <div id="checkoutSuccess" class="success-message"></div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              onclick="closeCheckoutModal()"
+              class="btn-secondary"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn-primary" id="checkoutBtn">
+              Buat Pesanan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/cart.js"></script>
+  </body>
+</html>

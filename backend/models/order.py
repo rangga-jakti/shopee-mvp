@@ -4,6 +4,7 @@ from datetime import datetime
 from backend.database import Base
 import enum
 
+
 class OrderStatus(str, enum.Enum):
     PENDING = "pending"
     PAID = "paid"
@@ -22,8 +23,7 @@ class Order(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     
     # Relationships
-    buyer = relationship("User", back_populates="orders")
-    items = relationship("OrderItem", back_populates="order")
+    items = relationship("OrderItem", back_populates="order", lazy="joined")
 
 class OrderItem(Base):
     __tablename__ = "order_items"
@@ -36,4 +36,4 @@ class OrderItem(Base):
     
     # Relationships
     order = relationship("Order", back_populates="items")
-    product = relationship("Product", back_populates="order_items")
+    product = relationship("Product", lazy="joined")

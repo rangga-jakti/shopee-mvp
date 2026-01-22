@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🛍️ Shopee MVP</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="/">Home</a>
+                <a href="/orders.html">📦 Pesanan</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="payment-header">
+        <div class="container">
+            <h2>💳 Pembayaran</h2>
+            <p>Pilih metode pembayaran Anda</p>
+        </div>
+    </section>
+
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Order Summary -->
+                <div class="payment-summary">
+                    <h3>📋 Ringkasan Pesanan</h3>
+                    <div class="summary-info">
+                        <div class="summary-row">
+                            <span>Order ID:</span>
+                            <strong id="orderId">-</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Total Pembayaran:</span>
+                            <strong id="totalAmount" class="amount-text">Rp 0</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="timer-section">
+                        <div class="timer-label">Selesaikan pembayaran dalam:</div>
+                        <div id="paymentTimer" class="payment-timer">23:59:45</div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods">
+                    <h3>Pilih Metode Pembayaran</h3>
+                    
+                    <!-- E-Wallet -->
+                    <div class="payment-category">
+                        <h4>💰 E-Wallet</h4>
+                        <div class="payment-options">
+                            <div class="payment-option" onclick="selectPayment('gopay')">
+                                <input type="radio" name="payment" id="gopay" value="gopay">
+                                <label for="gopay">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #00AED6;">G</span>
+                                        <span class="payment-name">GoPay</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option" onclick="selectPayment('ovo')">
+                                <input type="radio" name="payment" id="ovo" value="ovo">
+                                <label for="ovo">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #4C3494;">O</span>
+                                        <span class="payment-name">OVO</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option" onclick="selectPayment('dana')">
+                                <input type="radio" name="payment" id="dana" value="dana">
+                                <label for="dana">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #118EEA;">D</span>
+                                        <span class="payment-name">DANA</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option" onclick="selectPayment('shopeepay')">
+                                <input type="radio" name="payment" id="shopeepay" value="shopeepay">
+                                <label for="shopeepay">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #EE4D2D;">S</span>
+                                        <span class="payment-name">ShopeePay</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer -->
+                    <div class="payment-category">
+                        <h4>🏦 Transfer Bank</h4>
+                        <div class="payment-options">
+                            <div class="payment-option" onclick="selectPayment('bca')">
+                                <input type="radio" name="payment" id="bca" value="bca">
+                                <label for="bca">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #003D79;">BCA</span>
+                                        <span class="payment-name">Bank BCA</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option" onclick="selectPayment('mandiri')">
+                                <input type="radio" name="payment" id="mandiri" value="mandiri">
+                                <label for="mandiri">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #003D79;">M</span>
+                                        <span class="payment-name">Bank Mandiri</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option" onclick="selectPayment('bni')">
+                                <input type="radio" name="payment" id="bni" value="bni">
+                                <label for="bni">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #ED7D31;">BNI</span>
+                                        <span class="payment-name">Bank BNI</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COD -->
+                    <div class="payment-category">
+                        <h4>💵 Bayar di Tempat</h4>
+                        <div class="payment-options">
+                            <div class="payment-option" onclick="selectPayment('cod')">
+                                <input type="radio" name="payment" id="cod" value="cod">
+                                <label for="cod">
+                                    <div class="payment-logo">
+                                        <span class="payment-icon" style="background: #4CAF50;">💵</span>
+                                        <span class="payment-name">Cash on Delivery (COD)</span>
+                                    </div>
+                                    <span class="payment-check">✓</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Button -->
+                    <div class="payment-action">
+                        <button id="payButton" class="btn-pay-now" disabled onclick="processPayment()">
+                            Pilih Metode Pembayaran
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/payment.js"></script>
+</body>
+</html>

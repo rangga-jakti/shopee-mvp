@@ -1,9 +1,8 @@
 from backend.database import engine, Base
-
-# Import SEMUA models di sini (penting untuk SQLAlchemy relationships)
 from backend.models.user import User
 from backend.models.product import Product
 from backend.models.order import Order, OrderItem
+from backend.models.cart import CartItem
 
 def init_database():
     """Create all tables in database"""

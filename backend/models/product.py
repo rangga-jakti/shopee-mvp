@@ -1,5 +1,4 @@
 from sqlalchemy import Column, Integer, String, Float, Text, DateTime, ForeignKey
-from sqlalchemy.orm import relationship
 from datetime import datetime
 from backend.database import Base
 
@@ -15,7 +14,3 @@ class Product(Base):
     category = Column(String)
     seller_id = Column(Integer, ForeignKey("users.id"))
     created_at = Column(DateTime, default=datetime.utcnow)
-    
-    # Relationships
-    seller = relationship("User", back_populates="products")
-    order_items = relationship("OrderItem", back_populates="product")

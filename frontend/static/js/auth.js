@@ -18,6 +18,18 @@ function checkAuth() {
       logoutBtn.textContent = `Logout (${user.username})`;
     }
 
+    // Show orders link for buyers
+    if (!user.is_seller) {
+      const ordersLink = document.getElementById("ordersLink");
+      if (ordersLink) ordersLink.style.display = "block";
+    }
+
+    // Show cart link for buyers
+    if (!user.is_seller) {
+      const cartLink = document.getElementById("cartLink");
+      if (cartLink) cartLink.style.display = "block";
+    }
+
     // Show seller dashboard if user is seller
     if (user.is_seller) {
       const sellerBtn = document.getElementById("sellerBtn");

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Pesanan - Shopee MVP</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1>🛍️ Shopee MVP</h1>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="/">Home</a>
+          <a href="/cart.html" id="cartLink" style="display: none"
+            >🛒 Keranjang</a
+          >
+          <a href="/orders.html" id="ordersLink" style="display: none"
+            >📦 Pesanan</a
+          >
+          <a href="/login.html" id="loginBtn">Login</a>
+          <a href="/register.html" id="registerBtn">Register</a>
+          <a href="/seller.html" id="sellerBtn" style="display: none"
+            >Dashboard Seller</a
+          >
+          <a href="#" id="logoutBtn" style="display: none">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="orders-header">
+      <div class="container">
+        <h2>📦 Riwayat Pesanan</h2>
+        <p>Lihat semua pesanan yang telah Anda buat</p>
+      </div>
+    </section>
+
+    <section class="orders-section">
+      <div class="container">
+        <div id="loadingSpinner" class="loading">Memuat pesanan...</div>
+
+        <div id="emptyOrders" class="empty-cart" style="display: none">
+          <div class="empty-icon">📦</div>
+          <h3>Belum Ada Pesanan</h3>
+          <p>Anda belum pernah membuat pesanan</p>
+          <a href="/" class="btn-primary">Mulai Belanja</a>
+        </div>
+
+        <div id="ordersList" class="orders-list"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Shopee MVP. Built with FastAPI & Pure JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/orders.js"></script>
+  </body>
+</html>
