@@ -27,17 +27,12 @@ This project focuses on **clean backend architecture, authentication, and real A
 
 ### Marketplace
 
-- Product listing & category filtering
+- Product listing & filtering
 - Product detail page
 - Seller dashboard (CRUD products)
-- Seller statistics & analytics
-
-### Orders & Payment Flow
-
-- Shopping cart management
+- Shopping cart system
 - Order creation & order history
-- Order status lifecycle (pending / paid)
-- **Payment simulation** (no real gateway integration)
+- Payment simulation flow
 
 ---
 
@@ -71,10 +66,14 @@ This project focuses on **clean backend architecture, authentication, and real A
 
 ## Project Structure
 
-```text
+text
 shopee-mvp/
-│
 ├── backend/        # FastAPI backend
+│   ├── models/     # Database models
+│   ├── routes/     # API endpoints
+│   ├── schemas/    # Pydantic schemas
+│   ├── utils/      # Auth & dependencies
+│   └── main.py
 ├── frontend/       # HTML, CSS, JS frontend
 ├── tests/          # Automated tests
 ├── scripts/        # Helper & debug scripts
@@ -131,14 +130,19 @@ pytest
 - Product search & reviews
 - Deployment (Railway / Render / Docker)
 
-## Notes
+## Notes    
 
 This project was created as a personal learning and portfolio project to practice building a full-stack marketplace application from scratch.
 
-The focus is on backend architecture, authentication, and transactional workflows.
-Payment processing is intentionally simulated to keep the project lightweight and focused on core backend concepts.
+Advanced production features such as real payment gateways, file uploads, and cloud deployment are intentionally left for future iterations.
 
 ## LICENSE
 
 MIT License
-```
+
+## Author
+
+Mirangga Jakti
+GitHub: https://github.com/rangga-jakti
+
+LinkedIn: https://www.linkedin.com/in/mirangga-jakti-8b0a69334/
