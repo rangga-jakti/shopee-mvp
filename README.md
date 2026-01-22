@@ -12,8 +12,8 @@ This project focuses on **clean backend architecture, authentication, and real A
 - Build a real, working marketplace MVP
 - Practice backend system design with FastAPI
 - Implement JWT-based authentication & authorization
-- Separate concerns (models, routes, schemas, services)
-- Prepare a **portfolio-grade project** for backend roles
+- Apply clean separation of concerns (models, routes, schemas)
+- Deliver a **portfolio-grade backend-focused project**
 
 ---
 
@@ -27,25 +27,33 @@ This project focuses on **clean backend architecture, authentication, and real A
 
 ### Marketplace
 
-- Product listing & filtering
+- Product listing & category filtering
 - Product detail page
 - Seller dashboard (CRUD products)
 - Seller statistics & analytics
 
-### Technical
+### Orders & Payment Flow
 
-- RESTful API
-- SQLite database
+- Shopping cart management
+- Order creation & order history
+- Order status lifecycle (pending / paid)
+- **Payment simulation** (no real gateway integration)
+
+---
+
+### Technical Highlights
+
+- RESTful API design
+- SQLite database with relationships
 - Clean project structure
 - Automated tests
-- Vanilla JS frontend (Fetch API)
+- Vanilla JavaScript frontend (Fetch API)
 
 ---
 
 ## Tech Stack
 
 ### Backend
-
 - FastAPI
 - SQLAlchemy
 - SQLite
@@ -73,7 +81,6 @@ shopee-mvp/
 ├── README.md
 ├── LICENSE
 └── requirements.txt
-
 
 ---
 
@@ -113,53 +120,23 @@ Seller
 Username: testseller
 Password: test123
 
-## Future Improvements
-
-1. Shopping Cart & Checkout System
-
-Add to cart
-Cart page
-Quantity adjustment
-Checkout form
-
-2. Order Management
-
-Order history for buyer
-Order management for seller
-Order status tracking
-Invoice generation
-
-3. Payment Integration
-
-Midtrans / Xendit integration
-Payment confirmation
-Payment proof upload
-
-4. Advanced Features
-
-Product search
-Product reviews & ratings
-User profile page
-Upload product images
-Wishlist
-Notifications
-
-5. Deployment
-
-Deploy ke Railway / Render / Heroku
-Change SQLite to PostgreSQL
-Add domain custom
-SSL certificate
-
 ## Testing
 pytest
+
+## Future Improvements
+
+- Real payment gateway integration (Midtrans / Xendit)
+- PostgreSQL migration
+- Product image uploads
+- Product search & reviews
+- Deployment (Railway / Render / Docker)
 
 ## Notes
 
 This project was created as a personal learning and portfolio project to practice building a full-stack marketplace application from scratch.
 
-It focuses on core marketplace concepts such as authentication, product management, and seller dashboards.
-Advanced features like checkout and payment processing are intentionally left for future iterations.
+The focus is on backend architecture, authentication, and transactional workflows.
+Payment processing is intentionally simulated to keep the project lightweight and focused on core backend concepts.
 
 ## LICENSE
 
